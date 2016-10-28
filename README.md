@@ -1,1 +1,3 @@
-a simple plain calculator for my taste
+#PlainCalculator
+
+A simple plain calculator for my taste.
