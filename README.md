@@ -5,6 +5,9 @@
 
 A simple plain calculator android app for my taste.
 
+Goole Playstore Link:
+    https://play.google.com/store/apps/details?id=com.plaincalculator.android
+
 ## License
     
     Copyright 2016 Steve Chang
