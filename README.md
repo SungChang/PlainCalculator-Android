@@ -1,5 +1,8 @@
 #PlainCalculator
 
+
+![Logo](app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+
 A simple plain calculator android app for my taste.
 
 ## License
