@@ -80,13 +80,6 @@ public class MainActivity extends Activity {
         }
         vibrator.vibrate(40);
     }
-    private KeyPadType getLastKeyPadType() {
-        if (expressionView.length() == 0) {
-            return null;
-        }
-        char lastChar = expressionView.getText().charAt(expressionView.length() - 1);
-        return getKeyPadType(lastChar);
-    }
 
     private KeyPadType getKeyPadType(char c) {
         switch (c) {
@@ -101,6 +94,14 @@ public class MainActivity extends Activity {
             default:
                 return KeyPadType.Data;
         }
+    }
+
+    private KeyPadType getLastKeyPadType() {
+        if (expressionView.length() == 0) {
+            return null;
+        }
+        char lastChar = expressionView.getText().charAt(expressionView.length() - 1);
+        return getKeyPadType(lastChar);
     }
 
     private void setExpression(String text) {
