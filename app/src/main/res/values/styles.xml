@@ -22,7 +22,7 @@
     </style>
 
     <style name="KeyPad.Operation.Clear">
-        <item name="android:text">Center</item>
+        <item name="android:text">Clear</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/keyPadClearText</item>
         <item name="android:textSize">30dp</item>
@@ -48,6 +48,12 @@
     <style name="Divider.Vertical">
         <item name="android:layout_width">0.5dp</item>
         <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="CalculationText">
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:gravity">right|center_vertical</item>
+        <item name="android:maxLength">20</item>
     </style>
 
 </resources>

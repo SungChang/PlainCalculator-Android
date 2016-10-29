@@ -5,33 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/result_container"
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/calculation_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/colorWarmGray"
         app:layout_heightPercent="25%">
+        
+        <TextView
+            style="@style/CalculationText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/result_view"
+            android:textSize="34dp"
+            app:layout_heightPercent="50%"/>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/result_view"
+            app:layout_heightPercent="50%">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_back"
+                android:background="@color/colorWarmGray"
+                android:contentDescription="@null" />
+
+            <TextView
+                style="@style/CalculationText"
+                android:id="@+id/expression_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/back_button"
+                android:textSize="24dp"
+                android:alpha="0.75" />
+
+        </RelativeLayout>
+
+    </android.support.percent.PercentRelativeLayout>
 
     <TextView
         style="@style/KeyPad.Operation.Clear"
         android:id="@+id/clear_button"
-        android:layout_below="@+id/result_container" />
+        android:layout_below="@+id/calculation_container" />
 
     <ImageView
         style="@style/KeyPad.Operation"
         android:id="@+id/exp_button"
         android:layout_toRightOf="@id/clear_button"
-        android:layout_below="@id/result_container"
-        android:src="@drawable/icon_exponent"/>
+        android:layout_below="@id/calculation_container"
+        android:src="@drawable/icon_exponent"
+        android:tag="^"/>
 
     <ImageView
         style="@style/KeyPad.Operation"
         android:id="@+id/div_button"
         android:layout_toRightOf="@id/exp_button"
-        android:layout_below="@id/result_container"
-        android:src="@drawable/icon_divide" />
+        android:layout_below="@id/calculation_container"
+        android:src="@drawable/icon_divide"
+        android:tag="/"/>
 
     <TextView
         style="@style/KeyPad.Num"
@@ -61,7 +99,8 @@
         android:id="@+id/mul_button"
         android:layout_toRightOf="@id/nine_button"
         android:layout_below="@id/div_button"
-        android:src="@drawable/icon_multiply" />
+        android:src="@drawable/icon_multiply"
+        android:tag="*"/>
 
     <TextView
         style="@style/KeyPad.Num"
@@ -91,7 +130,8 @@
         android:id="@+id/sub_button"
         android:layout_toRightOf="@id/six_button"
         android:layout_below="@id/nine_button"
-        android:src="@drawable/icon_minus"/>
+        android:src="@drawable/icon_minus"
+        android:tag="-" />
 
     <TextView
         style="@style/KeyPad.Num"
@@ -121,7 +161,8 @@
         android:id="@+id/add_button"
         android:layout_toRightOf="@id/three_button"
         android:layout_below="@id/sub_button"
-        android:src="@drawable/icon_plus"/>
+        android:src="@drawable/icon_plus"
+        android:tag="+"/>
 
     <TextView
         style="@style/KeyPad.Num"
@@ -156,7 +197,7 @@
 
     <View
         style="@style/Divider.Horizontal"
-        android:layout_below="@id/result_container" />
+        android:layout_below="@id/calculation_container" />
 
     <View
         style="@style/Divider.Horizontal"
@@ -182,11 +223,11 @@
     <View
         style="@style/Divider.Vertical"
         android:layout_toRightOf="@id/clear_button"
-        android:layout_below="@id/result_container" />
+        android:layout_below="@id/calculation_container" />
 
     <View
         style="@style/Divider.Vertical"
         android:layout_toRightOf="@id/exp_button"
-        android:layout_below="@id/result_container" />
+        android:layout_below="@id/calculation_container" />
 
 </android.support.percent.PercentRelativeLayout>
