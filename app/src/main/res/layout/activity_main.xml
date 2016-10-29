@@ -15,165 +15,177 @@
     </RelativeLayout>
 
     <TextView
-        style="@style/KeyPadClear"
+        style="@style/KeyPad.Operation.Clear"
         android:id="@+id/clear_button"
         android:layout_below="@+id/result_container" />
 
     <ImageView
-        style="@style/KeyPadOperation"
+        style="@style/KeyPad.Operation"
         android:id="@+id/exp_button"
         android:layout_toRightOf="@id/clear_button"
         android:layout_below="@id/result_container"
         android:src="@drawable/icon_exponent"/>
 
     <ImageView
-        style="@style/KeyPadOperation"
+        style="@style/KeyPad.Operation"
         android:id="@+id/div_button"
         android:layout_toRightOf="@id/exp_button"
         android:layout_below="@id/result_container"
         android:src="@drawable/icon_divide" />
 
     <TextView
-        style="@style/KeyPadNum"
-        android:id="@+id/one_button"
-        android:layout_below="@id/four_button"
-        android:text="1" />
+        style="@style/KeyPad.Num"
+        android:id="@+id/seven_button"
+        android:layout_below="@id/clear_button"
+        android:text="7"
+        android:tag="7"/>
 
     <TextView
-        style="@style/KeyPadNum"
-        android:id="@+id/two_button"
-        android:layout_toRightOf="@id/one_button"
-        android:layout_below="@id/five_button"
-        android:text="2"/>
+        style="@style/KeyPad.Num"
+        android:id="@+id/eight_button"
+        android:layout_toRightOf="@id/seven_button"
+        android:layout_below="@id/clear_button"
+        android:text="8"
+        android:tag="8"/>
 
     <TextView
-        style="@style/KeyPadNum"
-        android:id="@+id/three_button"
-        android:layout_toRightOf="@id/two_button"
-        android:layout_below="@id/six_button"
-        android:text="3"/>
+        style="@style/KeyPad.Num"
+        android:id="@+id/nine_button"
+        android:layout_toRightOf="@id/eight_button"
+        android:layout_below="@id/exp_button"
+        android:text="9"
+        android:tag="9"/>
 
     <ImageView
-        style="@style/KeyPadOperation"
+        style="@style/KeyPad.Operation"
         android:id="@+id/mul_button"
         android:layout_toRightOf="@id/nine_button"
         android:layout_below="@id/div_button"
         android:src="@drawable/icon_multiply" />
 
     <TextView
-        style="@style/KeyPadNum"
+        style="@style/KeyPad.Num"
         android:id="@+id/four_button"
         android:layout_below="@id/seven_button"
-        android:text="4" />
+        android:text="4"
+        android:tag="4"/>
 
     <TextView
-        style="@style/KeyPadNum"
+        style="@style/KeyPad.Num"
         android:id="@+id/five_button"
         android:layout_toRightOf="@id/four_button"
-        android:layout_below="@id/two_buttons"
-        android:text="5" />
+        android:layout_below="@id/eight_button"
+        android:text="5"
+        android:tag="5" />
 
     <TextView
-        style="@style/KeyPadNum"
+        style="@style/KeyPad.Num"
         android:id="@+id/six_button"
         android:layout_toRightOf="@id/five_button"
         android:layout_below="@id/nine_button"
-        android:text="6" />
+        android:text="6"
+        android:tag="6" />
 
     <ImageView
-        style="@style/KeyPadOperation"
+        style="@style/KeyPad.Operation"
         android:id="@+id/sub_button"
         android:layout_toRightOf="@id/six_button"
         android:layout_below="@id/nine_button"
         android:src="@drawable/icon_minus"/>
 
     <TextView
-        style="@style/KeyPadNum"
-        android:id="@+id/seven_button"
-        android:layout_below="@id/clear_button"
-        android:text="7" />
+        style="@style/KeyPad.Num"
+        android:id="@+id/one_button"
+        android:layout_below="@id/four_button"
+        android:text="1"
+        android:tag="1" />
 
     <TextView
-        style="@style/KeyPadNum"
-        android:id="@+id/two_buttons"
-        android:layout_toRightOf="@id/seven_button"
-        android:layout_below="@id/clear_button"
-        android:text="8" />
+        style="@style/KeyPad.Num"
+        android:id="@+id/two_button"
+        android:layout_toRightOf="@id/one_button"
+        android:layout_below="@id/five_button"
+        android:text="2"
+        android:tag="2"/>
 
     <TextView
-        style="@style/KeyPadNum"
-        android:id="@+id/nine_button"
-        android:layout_toRightOf="@id/two_buttons"
-        android:layout_below="@id/exp_button"
-        android:text="9" />
+        style="@style/KeyPad.Num"
+        android:id="@+id/three_button"
+        android:layout_toRightOf="@id/two_button"
+        android:layout_below="@id/six_button"
+        android:text="3"
+        android:tag="3" />
 
     <ImageView
-        style="@style/KeyPadOperation"
+        style="@style/KeyPad.Operation"
         android:id="@+id/add_button"
         android:layout_toRightOf="@id/three_button"
         android:layout_below="@id/sub_button"
         android:src="@drawable/icon_plus"/>
 
     <TextView
-        style="@style/KeyPadNum"
+        style="@style/KeyPad.Num"
         android:id="@+id/two_zero_button"
         android:layout_below="@id/one_button"
-        android:text="00"/>
+        android:text="00"
+        android:tag="00" />
 
     <TextView
-        style="@style/KeyPadNum"
+        style="@style/KeyPad.Num"
         android:id="@+id/zero_button"
         android:layout_toRightOf="@id/two_zero_button"
         android:layout_below="@id/two_button"
-        android:text="0"/>
+        android:text="0"
+        android:tag="0" />
 
     <TextView
-        style="@style/KeyPadNum"
+        style="@style/KeyPad.Num"
         android:id="@+id/point_button"
         android:layout_toRightOf="@id/zero_button"
         android:layout_below="@id/three_button"
-        android:text="."/>
+        android:text="."
+        android:tag="." />
 
     <ImageView
-        style="@style/KeyPadOperation"
+        style="@style/KeyPad.Operation"
         android:id="@+id/equal_button"
         android:layout_toRightOf="@id/point_button"
         android:layout_below="@id/add_button"
-        android:background="@color/colorGoogleRed"
+        android:background="@drawable/ripple_keypad_operation_equal"
         android:src="@drawable/icon_equal" />
 
     <View
-        style="@style/HorizontalDivider"
+        style="@style/Divider.Horizontal"
         android:layout_below="@id/result_container" />
 
     <View
-        style="@style/HorizontalDivider"
+        style="@style/Divider.Horizontal"
         android:layout_below="@id/clear_button" />
 
     <View
-        style="@style/HorizontalDivider"
+        style="@style/Divider.Horizontal"
         android:layout_below="@id/seven_button" />
 
     <View
-        style="@style/HorizontalDivider"
+        style="@style/Divider.Horizontal"
         android:layout_below="@id/four_button" />
 
     <View
-        style="@style/HorizontalDivider"
+        style="@style/Divider.Horizontal"
         android:layout_below="@id/one_button" />
 
     <View
-        style="@style/VerticalDivider"
+        style="@style/Divider.Vertical"
         android:layout_toRightOf="@id/seven_button"
         android:layout_below="@id/clear_button" />
 
     <View
-        style="@style/VerticalDivider"
+        style="@style/Divider.Vertical"
         android:layout_toRightOf="@id/clear_button"
         android:layout_below="@id/result_container" />
 
     <View
-        style="@style/VerticalDivider"
+        style="@style/Divider.Vertical"
         android:layout_toRightOf="@id/exp_button"
         android:layout_below="@id/result_container" />
 

@@ -10,20 +10,18 @@
     <style name="KeyPad">
         <item name="android:width">0dp</item>
         <item name="android:height">0dp</item>
-        <item name="android:foreground">?android:selectableItemBackground</item>
         <item name="layout_widthPercent">25%</item>
         <item name="layout_heightPercent">15%</item>
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="KeyPadOperation" parent="KeyPad">
-        <item name="android:contentDescription">@null</item>
+    <style name="KeyPad.Operation">
         <item name="android:scaleType">center</item>
-        <item name="android:background">@color/colorGoogleYellow</item>
+        <item name="android:background">@drawable/ripple_keypad_operation</item>
+        <item name="android:contentDescription">@null</item>
     </style>
 
-    <style name="KeyPadClear" parent="KeyPad">
-        <item name="android:background">@color/colorGoogleYellow</item>
+    <style name="KeyPad.Operation.Clear">
         <item name="android:text">Center</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/keyPadClearText</item>
@@ -31,23 +29,23 @@
         <item name="layout_widthPercent">50%</item>
     </style>
 
-    <style name="KeyPadNum" parent="KeyPad">
+    <style name="KeyPad.Num">
         <item name="android:textSize">32dp</item>
         <item name="android:textColor">@color/keyPadNumText</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:background">@color/colorWarmGray</item>
+        <item name="android:background">@drawable/ripple_keypad_data</item>
     </style>
 
     <style name="Divider">
         <item name="android:background">@color/lightDivider</item>
     </style>
 
-    <style name="HorizontalDivider" parent="Divider">
+    <style name="Divider.Horizontal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
     </style>
 
-    <style name="VerticalDivider" parent="Divider">
+    <style name="Divider.Vertical">
         <item name="android:layout_width">0.5dp</item>
         <item name="android:layout_height">match_parent</item>
     </style>
