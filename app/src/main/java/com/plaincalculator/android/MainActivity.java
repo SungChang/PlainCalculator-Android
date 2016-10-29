@@ -19,13 +19,12 @@ import butterknife.OnClick;
 
 public class MainActivity extends Activity {
     private enum KeyPadType {
-        Data, InsertableOperation
+        Data, InsertableOperation, Point
     }
 
     private Vibrator vibrator;
-    private KeyPadType lastKeyPadType;
     private BigDecimal result;
-    private boolean isOnProgress;
+    private boolean isEquationChanged;
 
     @BindView(R.id.expression_view) TextView expressionView;
     @BindView(R.id.result_view) TextView resultView;
@@ -42,8 +41,10 @@ public class MainActivity extends Activity {
             R.id.five_button, R.id.six_button, R.id.seven_button, R.id.eight_button,
             R.id.nine_button, R.id.zero_button, R.id.two_zero_button, R.id.point_button})
     void dataButtonPressed(View button) {
+        if (button.getId() == R.id.point_button && !canPutPoint()) {
+            return;
+        }
         insertExpression(button.getTag().toString());
-        lastKeyPadType = KeyPadType.Data;
         vibrator.vibrate(20);
     }
 
@@ -54,18 +55,52 @@ public class MainActivity extends Activity {
             clear();
         } else if (button.getId() == R.id.equal_button) {
             showResult();
+        } else if (getLastKeyPadType() == KeyPadType.Point) {
+            return;
         } else {
+            KeyPadType lastKeyPadType = getLastKeyPadType();
             if (lastKeyPadType != null && lastKeyPadType != KeyPadType.InsertableOperation) {
-                String operation = button.getTag().toString();
-                if (!isOnProgress) {
+                if (!isEquationChanged) {
                     setExpression(result.toPlainString());
-                    isOnProgress = true;
                 }
+                String operation = button.getTag().toString();
                 insertExpression(operation);
-                lastKeyPadType = KeyPadType.InsertableOperation;
             }
         }
         vibrator.vibrate(40);
+    }
+
+    @OnClick(R.id.back_button)
+    void backButtonPressed() {
+        if (expressionView.length() > 0) {
+            String currentEquation = expressionView.getText().toString();
+            String newEquation = currentEquation.substring(0, currentEquation.length() - 1);
+            expressionView.setText(newEquation);
+            isEquationChanged = true;
+        }
+        vibrator.vibrate(40);
+    }
+    private KeyPadType getLastKeyPadType() {
+        if (expressionView.length() == 0) {
+            return null;
+        }
+        char lastChar = expressionView.getText().charAt(expressionView.length() - 1);
+        return getKeyPadType(lastChar);
+    }
+
+    private KeyPadType getKeyPadType(char c) {
+        switch (c) {
+            case '+':
+            case '-':
+            case '*':
+            case '/':
+            case '^':
+                return KeyPadType.InsertableOperation;
+            case '.':
+                return KeyPadType.Point;
+            default:
+                return KeyPadType.Data;
+        }
     }
 
     private void setExpression(String text) {
@@ -74,7 +109,7 @@ public class MainActivity extends Activity {
 
     private void insertExpression(String data) {
         expressionView.append(data);
-        isOnProgress = true;
+        isEquationChanged = true;
     }
 
     private void showResult() {
@@ -90,7 +125,7 @@ public class MainActivity extends Activity {
                 result = expression.setPrecision(4).eval();
                 resultView.setText(String.valueOf(result));
             }
-            isOnProgress = false;
+            isEquationChanged = false;
         } catch (EmptyStackException e) {
             Log.e(MainActivity.class.toString(), e.toString());
         } catch (ArithmeticException e) {
@@ -101,6 +136,24 @@ public class MainActivity extends Activity {
     private void clear() {
         expressionView.setText(null);
         resultView.setText(null);
-        lastKeyPadType = null;
+    }
+
+    private boolean canPutPoint() {
+        KeyPadType lastKeyPadType = getLastKeyPadType();
+        if (lastKeyPadType == null || lastKeyPadType == KeyPadType.InsertableOperation) {
+            return false;
+        }
+
+        boolean pointAllowed = true;
+        String expression = expressionView.getText().toString();
+        for (int i = 0; i < expression.length(); i++) {
+            KeyPadType currentKeyPadType = getKeyPadType(expression.charAt(i));
+            if (currentKeyPadType == KeyPadType.Point) {
+                pointAllowed = false;
+            } else if (currentKeyPadType == KeyPadType.InsertableOperation) {
+                pointAllowed = true;
+            }
+        }
+        return pointAllowed;
     }
 }

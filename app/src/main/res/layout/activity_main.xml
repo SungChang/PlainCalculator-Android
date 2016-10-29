@@ -31,10 +31,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
+                android:padding="10dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/icon_back"
-                android:background="@color/colorWarmGray"
+                android:background="@drawable/ripple_warm_gray"
                 android:contentDescription="@null" />
 
             <TextView
@@ -192,7 +192,7 @@
         android:id="@+id/equal_button"
         android:layout_toRightOf="@id/point_button"
         android:layout_below="@id/add_button"
-        android:background="@drawable/ripple_keypad_operation_equal"
+        android:background="@drawable/ripple_google_red"
         android:src="@drawable/icon_equal" />
 
     <View

@@ -17,7 +17,7 @@
 
     <style name="KeyPad.Operation">
         <item name="android:scaleType">center</item>
-        <item name="android:background">@drawable/ripple_keypad_operation</item>
+        <item name="android:background">@drawable/ripple_google_yellow</item>
         <item name="android:contentDescription">@null</item>
     </style>
 
@@ -33,7 +33,7 @@
         <item name="android:textSize">32dp</item>
         <item name="android:textColor">@color/keyPadNumText</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:background">@drawable/ripple_keypad_data</item>
+        <item name="android:background">@drawable/ripple_warm_gray</item>
     </style>
 
     <style name="Divider">
